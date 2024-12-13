@@ -44,9 +44,19 @@ nav ul li a {
 }
 
 /* Sections générales */
+
 section {
   padding: 3rem 1rem;
   text-align: center;
+}
+
+h2 {
+  margin-bottom: 4rem;
+  font-size: 2rem;
+  text-decoration: underline;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
 }
 
 #about {
@@ -56,7 +66,57 @@ section {
   border-radius: 5px;
 }
 
-.skills {
+/* experience section */
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  /*justify-items: center;*/
+  margin-top: 1rem;
+}
+
+.experience-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.experience-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.experience-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* Центровка по горизонтали */
+  align-items: flex-start; /* Размещение текста сверху */
+  background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон (если нужен) */
+  padding-top: 10px; /* Отступ сверху для текста */
+  opacity: 0; /* Скрыто по умолчанию */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.experience-item:hover .overlay {
+  opacity: 1; /* Появление текста при наведении */
+}
+
+.experience-item .overlay span {
+  color: #fff; /* Белый текст */
+  font-size: 1.2rem; /* Размер текста */
+  font-weight: bold;
+  text-align: center;
+}
+
+/* skills section */
+.skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   gap: 1rem;
@@ -64,24 +124,49 @@ section {
   margin-top: 1rem;
 }
 
-.skills_icon {
-  display: flex;
+.skills-icon {
+  position: relative;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.skills-icon img {
   width: 80px;
   height: 80px;
+  transition: transform 0.3s ease;
+}
+
+.skills-icon:hover img {
+  transform: scale(1.2);
+}
+
+.skills-text {
+  font-size: 1rem;
+  color: #333;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-top: 10px;
+}
+
+.skills-icon:hover .skills-text {
+  opacity: 1;
 }
 
 /* Projects Section */
-#projects {
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 2rem;
 }
 
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+.projects h2 {
+  grid-column: 1 / -1;
 }
 
 .project {
